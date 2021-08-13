@@ -10,34 +10,8 @@ router.post('/registration', UserMiddleware.registration);
 
 router.post('/login', UserMiddleware.login);
 
-/*router.post('/test', verifyToken, (req, res) => {
-  jwt.verify(req.token, 'secretkey', (err) => {
-    if(err){
-      res.json({
-	message: 'Something went wrong in the verification...'
-      });
-    } else {
-      res.json({
-	  message: 'Logged in... '
-      });
-    }
-  });
-});
+router.put('/forgot-password', UserMiddleware.forgotPassword);
 
-function verifyToken(req, res, next){
-  const bearerHeader = req.headers['authorization'];
-
-  if(typeof bearerHeader !== 'undefined'){
-    const bearer = bearerHeader.split(' ');
-    const bearerToken = bearer[1];
-    req.token = bearerToken;
-    next();
-  } else {
-    res.json({
-      message: 'Something went wrong...'
-    })
-  }
-}
-*/
+router.put('/reset-password', UserMiddleware.resetPassword);
 
 module.exports = router;

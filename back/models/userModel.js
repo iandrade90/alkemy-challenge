@@ -22,6 +22,10 @@ User.init({
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    resetToken: {
+      type: DataTypes.STRING,
+      defaultValue: ''
     }
   }, {
     sequelize,
