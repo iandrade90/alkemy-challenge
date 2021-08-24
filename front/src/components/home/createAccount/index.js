@@ -1,13 +1,16 @@
+import React from 'react';
 import Title from './title/index';
 import Form from './form/index';
 
-function CreateAccount(){
-  return(
-    <div>
-      <Title />
-      <Form />
-    </div>
-  );
-};
+class CreateAccount extends React.Component{
+  render(){
+    return(
+      <div>
+        <Title />
+        <Form />
+      </div>
+    );
+  }
+}
 
 export default CreateAccount;

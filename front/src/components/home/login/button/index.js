@@ -1,5 +1,9 @@
-function Button(){
-  return <button>LOGIN</button>
-};
+import React from 'react';
+
+class Button extends React.Component {
+  render(){
+    return <button>LOGIN</button>
+  };
+}
 
 export default Button;

@@ -1,13 +1,16 @@
+import React from 'react'
 import Login from './login/index';
 import CreateAccount from './createAccount/index';
 
-function Home () {
-  return(
-    <div>
-      <Login />
-      <CreateAccount />
-    </div>
-  );
+class Home extends React.Component {
+  render(){
+    return(
+      <div>
+        <Login />
+        <CreateAccount />
+      </div>
+    );
+  }
 }
 
 export default Home;
