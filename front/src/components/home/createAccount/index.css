@@ -1,0 +1,7 @@
+.mainCreateAccountContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: black 1px solid;
+    padding: 30px 80px 30px 80px;
+}

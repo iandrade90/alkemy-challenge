@@ -1,0 +1,8 @@
+.lgnMainContainer{
+    background: steelblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: steelblue 1px solid;
+    padding: 78px 15px;
+}
