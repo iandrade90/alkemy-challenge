@@ -18,6 +18,7 @@
     "jsonwebtoken": "^8.5.1",
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.12",
+    "package.json": "^2.0.1",
     "sequelize": "^6.6.5",
     "sqlite3": "^5.0.2"
   }

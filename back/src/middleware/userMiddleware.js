@@ -46,7 +46,7 @@ exports.login = async function (req, res) {
     if(data){
       const validPass = await bcrypt.compare(password, data.password);
       if(validPass){
-	jwt.sign({data}, process.env.SECRET_KEY, { expiresIn: '10m' }, (err, token) =>{
+        jwt.sign({data}, process.env.SECRET_KEY, { expiresIn: '1h' }, (err, token) =>{
 	  if(token){
 	    res.json({token:token});
 	  } else {
