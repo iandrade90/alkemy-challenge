@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const UserMiddleware = require('../middleware/userMiddleware')
+const UserMiddleware = require('../middleware/userMiddleware');
+const { userValidationRules, validate } = require('../middleware/verification');
 
 router.use(express.json());
 

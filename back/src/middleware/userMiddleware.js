@@ -17,23 +17,35 @@ exports.getUsers = async function(req, res) {
 
 //NEW USER REGISTRATION
 
-exports.registration = async function (req, res) {
+exports.registration = async function (req, res, next) {
   try {
     const regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
     const {username, email, password} = req.body;
-    const hash = await bcrypt.hash(password, 10);  
-    if(password.match(regex)){
-      await UserModel.create({username:username, email:email, password:hash});
-      res.status(200).send('User is inserted');
-    } else {
-      res.json({message: 'Password too weak'});
+    const hash = await bcrypt.hash(password, 10);
+    const findByUser = await UserModel.findOne({where: {username: username}});
+    const findByEmail = await UserModel.findOne({where: {email: email}});
+
+    if(findByUser){
+      res.send('Username already exists');
+      return next();
     }
     
+    if(findByEmail){
+      res.send('Email already exists');
+      return next();
+    }
+
+    if(!password.match(regex)){
+      res.send('Password must be at least 8 characters long, one capital letter and numbers');
+      return next();
+    }
+    
+    await UserModel.create({username: username, email: email, password: hash});
+    res.send('Registration Succesful');
+      
   } catch(e) {
     console.log(e.message);
-    res.status(500).json({
-      message: 'Username or Email already in use'
-    })
+    res.send('Something went wrong')
   }
 };
 
